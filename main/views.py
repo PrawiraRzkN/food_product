@@ -11,7 +11,8 @@ def show_main(request):
     context = {
         'name': 'Pak Bepe', # Nama kamu
         'class': 'PBP A', # Kelas PBP kamu
-        'items': items
+        'items': items,
+        'items_count': len(Item.objects.all())
     }
 
     return render(request, "main.html", context)
