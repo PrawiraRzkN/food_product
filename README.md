@@ -100,3 +100,7 @@ JSON menjadi pilihan utama kebanyakan _developer_ website sebagai media pertukar
 6. Lalu tambahkan hasil pengisian form tersebut pada file html halaman utama degan cara mengakses data melalui object data yang telah mtersimpan di database melalui form.
 7. Untuk pengembalian data dalam bentuk XML dan JSON, buat terlebih dahulu fungsi yang menerima parameter request yang menyimpan hasil query dari seluruh data yang ada pada product menggunakan data = Product.objects.all(). Lalu tambahkan _return function_ berupa HttpResponse yang diserialisasi menjadi XML ataupun JSON. Setelah itu tambahkan path pengambilan data tersebut pada urls.py dengan _path url_ menyesuaikan nama fungsi yang sudah dibuat di views.py.
 8. Untuk pengembalian data berdasarkan ID dalam bentuk XML dan JSON. Step sama seperti nomor 7 hanya saja data = Product.objects.all() diganti menjadi data = Product.objects.filter(pk=id).
+
+Referensi:
+1. https://www.deltaxml.com/blog/xml/whats-the-relationship-between-xml-json-html-and-the-internet/#:~:text=As%20you%20will%20see%20from,how%20that%20data%20is%20displayed.
+2. https://docs.djangoproject.com/en/4.2/topics/forms/#:~:text=GET%20and%20POST&text=Django's%20login%20form%20is%20returned,this%20to%20compose%20a%20URL.
