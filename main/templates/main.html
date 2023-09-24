@@ -14,12 +14,13 @@
     <table>
         <tr>
             <th>Name</th>
-            <th>Amount</th>
             <th>Price</th>
             <th>Description</th>
             <th>Category</th>
             <th>Origin</th>
             <th>Date Added</th>
+            <th>Amount</th>
+            <th>Add/Remove</th>
         </tr>
     
         {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
@@ -27,12 +28,26 @@
         {% for item in items %}
             <tr>
                 <td>{{item.name}}</td>
-                <td>{{item.amount}}</item></td>
                 <td>{{item.price}}</td>
                 <td>{{item.description}}</td>
                 <td>{{item.category}}</td>
                 <td>{{item.origin}}</td>
                 <td>{{item.date_added}}</td>
+                <td>{{item.amount}}</item></td>
+                <td>
+                    <form method="POST" action="{% url 'main:add_amount_button' item.id %}">
+                        {% csrf_token %}
+                        <button type="submit">+</button>
+                    </form>
+                    <form method="POST" action="{% url 'main:reduce_amount_button' item.id %}">
+                        {% csrf_token %}
+                        <button type="submit">-</button>
+                    </form>
+                    <form method="POST" action="{% url 'main:remove_item_button' item.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Remove</button>
+                    </form>
+                </td>
             </tr>
         {% endfor %}
     </table>

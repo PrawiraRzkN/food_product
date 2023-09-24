@@ -13,6 +13,7 @@ from django.contrib.auth.decorators import login_required
 import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.shortcuts import get_object_or_404
 
 @login_required(login_url='/login')
 def show_main(request):
@@ -32,9 +33,9 @@ def create_item(request):
     form = ItemForm(request.POST or None)
 
     if form.is_valid() and request.method == "POST":
-        product = form.save(commit=False)
-        product.user = request.user
-        product.save()
+        item = form.save(commit=False)
+        item.user = request.user
+        item.save()
         return HttpResponseRedirect(reverse('main:show_main'))
 
     context = {'form': form}
@@ -88,3 +89,27 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+
+def add_amount_button(request, item_id):
+    item = get_object_or_404(Item, pk=item_id) #Mengakses item yang ingin dimodifikasi
+    item.user = request.user; 
+    if item.amount > 0:
+        item.amount += 1
+        item.save()
+    return redirect('main:show_main')
+
+def reduce_amount_button(request, item_id):
+    item = get_object_or_404(Item, pk=item_id)
+    item.user = request.user;
+    if item.amount > 1:
+        item.amount -= 1
+        item.save()
+    else:
+        item.delete();
+    return redirect('main:show_main')
+
+def remove_item_button(request, item_id):
+    item = get_object_or_404(Item, pk=item_id)
+    item.user = request.user;
+    item.delete()
+    return redirect('main:show_main')
