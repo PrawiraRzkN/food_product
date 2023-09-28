@@ -34,11 +34,11 @@ class mainTest(TestCase):
         retrieved_model = Item.objects.get(name="Soto Betawi")
 
         #Verify that the attributes match what retrieved before
-        self.assertEqual(test_model.name, "Soto Betawi")
-        self.assertEqual(test_model.amount, 3)
-        self.assertEqual(test_model.price, 25000)
-        self.assertEqual(test_model.description, "Kuah menggunakan susu")
-        self.assertEqual(test_model.category, "Main Course")
-        self.assertEqual(test_model.origin, "Betawi")
+        self.assertEqual(retrieved_model.name, "Soto Betawi")
+        self.assertEqual(retrieved_model.amount, 3)
+        self.assertEqual(retrieved_model.price, 25000)
+        self.assertEqual(retrieved_model.description, "Kuah menggunakan susu")
+        self.assertEqual(retrieved_model.category, "Main Course")
+        self.assertEqual(retrieved_model.origin, "Betawi")
     
 
