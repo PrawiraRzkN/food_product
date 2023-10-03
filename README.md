@@ -184,3 +184,275 @@ Dalam semua aspek ini, penting bagi pengembang web dan pemilik situs web untuk m
 1. https://www.javatpoint.com/django-usercreationform 
 2. https://vegibit.com/understanding-djangos-authentication-and-authorization-system/
 3. https://www.blackhawkbank.com/blog/should-i-accept-cookies-on-every-website
+
+# Tugas 5: Desain Web menggunakan HTML, CSS, dan Framework CSS
+## Manfaat dari setiap element selector dan waktu yang tepat untuk menggunakannya
+Element selector dalam HTML dan CSS digunakan untuk memilih elemen-elemen pada halaman web dan mendefinisikan gaya atau aturan yang akan diterapkan pada elemen-elemen tersebut. Berikut adalah beberapa manfaat dari penggunaan setiap jenis selector, beserta kapan waktu yang tepat untuk menggunakannya:
+### Element Selector (element)
+Manfaat: Selector ini memungkinkan Anda untuk menerapkan gaya secara umum pada semua elemen dengan jenis yang sama. Ini berguna ketika Anda ingin mengatur tampilan dasar untuk elemen-elemen tersebut.
+Waktu yang tepat: Gunakan selector ini ketika Anda ingin mengubah gaya dasar untuk semua elemen dengan jenis yang sama, misalnya mengubah font atau margin untuk semua teks paragraf (<p>).
+Contoh:
+```
+css
+Copy code
+p {
+  font-size: 16px;
+  margin: 10px;
+}
+```
+### ID Selector (#id)
+Manfaat: ID selector memungkinkan Anda untuk menargetkan elemen tertentu dengan ID unik dan menerapkan gaya khusus pada elemen tersebut. Ini sangat berguna untuk menyesuaikan elemen yang memiliki karakteristik unik.
+Waktu yang tepat: Gunakan selector ini ketika Anda perlu mengatur tampilan elemen tertentu yang memiliki ID unik. Hindari penggunaan berlebihan, karena ID seharusnya unik dalam satu halaman.
+Contoh:
+```
+css
+Copy code
+#header {
+  background-color: #333;
+  color: #fff;
+}
+```
+### Class Selector (.class)
+Manfaat: Class selector memungkinkan Anda untuk mengelompokkan elemen-elemen yang memiliki karakteristik yang sama dan menerapkan gaya pada semua elemen dalam kelompok tersebut.
+Waktu yang tepat: Gunakan selector ini ketika Anda ingin menggabungkan beberapa elemen dengan karakteristik yang sama, seperti tombol atau kotak-kotak dengan gaya yang serupa.
+Contoh:
+```
+css
+Copy code
+.button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+}
+```
+### Pseudo-class Selector (:pseudo-class)
+Manfaat: Pseudo-class selector digunakan untuk menentukan keadaan atau kondisi khusus elemen, seperti hover, active, atau focus. Ini memungkinkan Anda untuk memberikan respons visual saat pengguna berinteraksi dengan elemen tersebut.
+Waktu yang tepat: Gunakan selector ini untuk memberikan respons visual pada elemen saat pengguna berinteraksi dengan mereka, misalnya mengubah warna teks tombol saat tombol dihover oleh kursor mouse.
+Contoh:
+```
+css
+Copy code
+.button:hover {
+  background-color: #0056b3;
+}
+```
+### Universal Selector (*)
+Manfaat: Universal selector memilih semua elemen dalam halaman web. Ini dapat digunakan untuk menentukan gaya dasar yang berlaku untuk semua elemen dalam halaman.
+Waktu yang tepat: Universal selector sebaiknya digunakan dengan bijak, karena penggunaannya dapat mempengaruhi kinerja halaman web. Biasanya, itu digunakan dalam konteks tertentu seperti mengatur padding dan margin dasar pada semua elemen.
+Contoh:
+```
+css
+Copy code
+* {
+  margin: 0;
+  padding: 0;
+}
+```
+## Tag dalam HTML5
+Terdapat banyak tag dalam HTML5 yang digunakan untuk membangun struktur dan konten halaman web. Berikut adalah beberapa tag HTML5 yang umum diketahui banyak orang:
+
+1. `<head>`: Elemen `<head>` digunakan untuk menampung informasi tentang dokumen HTML, seperti meta-data, judul halaman, tautan ke stylesheet eksternal, dan kode JavaScript eksternal. Ini adalah bagian yang terletak di atas elemen `<body>` dan biasanya tidak terlihat oleh pengguna saat mereka mengunjungi halaman web. Elemen `<head>` membantu mesin pencari dan peramban web memahami dan merender halaman dengan benar.
+2. `<nav>`: Tag ini digunakan untuk mengelompokkan elemen-elemen yang berfungsi sebagai menu navigasi, seperti menu utama atau menu pilihan dalam sebuah halaman web.
+3. `<section>`: Tag ini digunakan untuk mengelompokkan konten yang memiliki tema atau topik tertentu. Sebuah halaman web dapat memiliki beberapa elemen `<section>` yang berbeda, seperti bagian pengenalan, bagian berita, atau bagian kontak.
+4. `<main>`: Tag ini digunakan untuk mengidentifikasi konten utama dari halaman web. Hanya satu elemen `<main>` yang boleh ada dalam satu halaman.
+5. `<footer>`: Tag ini digunakan untuk mendefinisikan bagian bawah (footer) dari halaman web. Biasanya, Anda akan menempatkan informasi kontak, hak cipta, atau tautan-tautan penting lainnya di dalam tag ini.
+6. `<a>`: Tag ini digunakan untuk membuat tautan (link) ke halaman web lain atau ke berkas-berkas, seperti dokumen PDF atau gambar.
+7. `<input>`: Tag ini digunakan untuk membuat berbagai jenis elemen input dalam formulir, seperti kotak teks, tombol radio, checkbox, dan banyak lagi.
+8. `<body>`: Elemen `<body>` adalah tempat Anda menempatkan semua konten yang ingin Anda tampilkan kepada pengguna pada halaman web. Ini bisa berupa teks, gambar, video, formulir, dan elemen-elemen lainnya yang akan dilihat dan diinteraksikan oleh pengguna ketika mereka mengunjungi halaman Anda.
+
+## Perbedaan Margin dan Padding
+Margin dan padding adalah dua konsep penting dalam desain web CSS yang digunakan untuk mengatur ruang antara elemen HTML. Namun, keduanya memiliki perbedaan yang signifikan dalam cara mereka memengaruhi tata letak elemen dan elemen tetangganya.
+### Margin
+1. Margin adalah ruang di luar batas luar elemen. Dalam kata lain, itu adalah jarak antara elemen dan elemen lain di sekitarnya.
+2. Margin tidak memiliki latar belakang atau warna, dan itu bukan bagian dari elemen itu sendiri. Ini hanya memengaruhi seberapa jauh elemen tersebut berada dari elemen-elemen lain.
+3. Margin digunakan untuk mengendalikan jarak antara elemen dengan elemen lain di luar elemen tersebut.
+4. Margin memiliki pengaruh pada tata letak keseluruhan halaman web.
+Contoh:
+```
+css
+Copy code
+.box {
+  margin: 10px;
+}
+```
+Dalam contoh di atas, elemen dengan kelas "box" akan memiliki margin 10 piksel dari semua sisi (atas, kanan, bawah, dan kiri).
+### Padding
+1. Padding adalah ruang di antara batas elemen dan kontennya sendiri. Ini berada di dalam elemen dan mengatur jarak antara konten elemen dan batasnya.
+2. Padding memiliki latar belakang dan warna yang sama dengan elemen itu sendiri. Ini adalah bagian dari elemen tersebut.
+3. Padding digunakan untuk mengendalikan jarak antara konten elemen dan batas elemen.
+Contoh:
+```
+css
+Copy code
+.box {
+  padding: 10px;
+}
+```
+Dalam contoh di atas, elemen dengan kelas "box" akan memiliki padding 10 piksel di sekeliling kontennya.
+
+Jadi, perbedaan utama antara margin dan padding adalah bahwa margin mengatur ruang di luar elemen dan memengaruhi jarak antara elemen dan elemen lainnya, sementara padding mengatur ruang di dalam elemen dan memengaruhi jarak antara konten elemen dan batas elemen itu sendiri. Keduanya memiliki peran yang penting dalam mengatur tata letak elemen di halaman web.
+## Perbedaan antara framework CSS Tailwind dan Bootstrap
+### Tailwind CSS
+1. Tailwind CSS mengusung pendekatan "utility-first," yang berarti penggunaannya lebih terfokus pada penggunaan kelas-kelas utilitas langsung dalam HTML untuk mengontrol tampilan.
+2. Framework ini minimalis dan hanya menyediakan kelas-kelas utilitas yang dibutuhkan, sehingga memberikan fleksibilitas yang tinggi untuk menyesuaikan desain sesuai kebutuhan.
+3. Tailwind cocok digunakan oleh pengembang yang ingin membuat tampilan yang sangat khusus dan tidak terikat pada desain bawaan.
+### Bootstrap:
+1. Bootstrap, di sisi lain, mengadopsi pendekatan berbasis komponen. Ini menyediakan komponen-komponen siap pakai seperti navbar, kartu, modals, dan lainnya yang dapat digunakan dalam proyek.
+2. Bootstrap memiliki desain yang telah dirancang dengan baik dan styling yang konsisten di seluruh komponennya, sehingga cocok digunakan oleh pengembang yang ingin cepat membuat tampilan yang terlihat baik tanpa banyak penyesuaian.
+3. Kurva pembelajaran Bootstrap cenderung lebih rendah, membuatnya cocok untuk pengembang pemula atau yang ingin menghemat waktu dalam pengembangan.
+
+Kapan sebaiknya menggunakan Tailwind CSS:
+- Saat ingin memiliki tingkat kontrol yang tinggi atas desain.
+- Jika ingin menciptakan tampilan yang sangat khusus dan tidak terikat pada desain bawaan.
+- Saat ingin menghindari memuat banyak kode CSS yang tidak digunakan.
+
+Kapan sebaiknya menggunakan Bootstrap:
+- Saat ingin membuat tampilan dengan cepat dan tanpa banyak penyesuaian.
+- Jika pengguna adalah pengembang pemula atau ingin menghemat waktu dalam pengembangan.
+- Jika pengguna menginginkan desain yang sudah memiliki styling yang konsisten secara bawaan.
+
+## step by step implementasi Desain Web menggunakan HTML, CSS, dan Framework CSS
+1. Menambahkan link sumber dari framework bootstrap ke base.html agar framework bootstrap dapat digunakan pada pengembangan aplikasi
+2. Menambahkan tag `<style>` pada setiap halaman agar tampilan dari web bisa diatur
+2. Membuat _navigation bar_ untuk setiap halaman pada aplikasi menggunakan tag `<nav>` dengan class yang disediakan framework bootstrap sehingga tampilannya terlihat lebih teratur dan menambahkan _button_ pada navbar tersebut yang akan berfungsi sesuai keinginan(opsional). Contoh:
+```
+<nav class="navbar body-tertiary"">
+    <div class="container-fluid">
+        <a class="navbar-brand" id="brand">Amarta's Restaurant</a>
+        <a href="{% url 'main:logout' %}">
+            <button class="btn btn-danger logout_btn" type="button">Logout</button>
+        </a>
+    </div>
+</nav>
+```
+3. Pada halaman `login.html`, form login beserta judul _Login_ dikelompokkan menggunakan tag `<div>` yang diberi class selector dari style css yang sudah diatur bordernya sehingga akan terlihat adanya kotak yang membatasi form beserta judul dengan konten lainnya. Berikut kodenya:
+style:
+```
+.login-box {
+    border: 1px solid black;
+    padding: 30px;
+    width: 25%;
+    margin-top: 80px;
+    margin-left: 37.5%;
+    margin-bottom: 30px;
+}
+```
+implementasi:
+```
+<div class="login-box">
+    <h2>Login</h2>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Username: </td>
+                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+            </tr>
+                    
+            <tr>
+                <td>Password: </td>
+                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><input class="btn btn-success login_btn" type="submit" value="Login"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+```
+4. Pada halaman `register.html` tampilan form diperindah dengan memanfaatkan element selector pada style CSS
+style:
+```
+form {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+```
+5. Pada halaman `main.html`, tabel kumpulan item diberi warna, diberikan padding dan border agar nyaman dilihat, dan dibedakan warna baris header, baris biasa, dan baris paling bawah dengan memanfaatkan pseudo-class selector
+style:
+```
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: center;
+    border: 2px solid black;
+    padding: 8px;
+}
+
+tr:first-child {
+    background-color: #FFD24C;
+}
+
+tr {
+    background-color: #FFE69A;
+}
+tr:last-child {
+    background-color: #92B4EC;
+}
+```
+6. Pada halaman `create_item.html`, form diperindah seperti pada halaman `register.html` hanya saja dengan style yang berbeda, yaitu alignment berada pada tengah halaman lalu untuk textarea description yang berada di paling bawah dibuat lebih besar dibandingkan yang lainnya
+style:
+```
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    flex-direction: column;
+    padding: 20px;
+    margin-top: 5px;
+}
+
+input, textarea {
+    width: 300px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 7px;
+}
+
+textarea:last-child {
+    width: 300px;
+    height: 150px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 7px;
+}
+```
+7. Untuk mempercantik aplikasi, element selector digunakan dalam mengubah warna font atau background button, mengubah ukuran font atau button, mengubah tata letak dengan memanfaatkan margin, border, dan padding. Selain menggunakan element selector pada style internal halaman, framework bootstrap juga digunakan dalam implementasi ini.
+Contoh element selector:
+```
+.content {
+    background-color:#FFFFFF; 
+    color:black; 
+    padding-inline: 30px; 
+    padding-block: 20px;
+}
+```
+contoh penggunaan framework bootstrap pada button (`btn-outlinea-warning`):
+```
+<div class="btn-display">
+    <form method="POST" action="{% url 'main:add_amount_button' item.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-warning btn-sm edit-item-btn">+</button>
+    </form>
+    <form method="POST" action="{% url 'main:reduce_amount_button' item.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-warning btn-sm edit-item-btn">-</button>
+    </form>
+    <form method="POST" action="{% url 'main:remove_item_button' item.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-danger btn-sm edit-item-btn">X</button>
+    </form>
+</div>
+```
