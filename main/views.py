@@ -21,6 +21,8 @@ def show_main(request):
 
     context = {
         'name': request.user.username,
+        'creator': 'Rizky Prawira Negoro',
+        'npm': '2206030956',
         'class': 'PBP E', # Kelas PBP kamu
         'items': items,
         'items_count': len(Item.objects.filter(user=request.user)),
@@ -38,7 +40,12 @@ def create_item(request):
         item.save()
         return HttpResponseRedirect(reverse('main:show_main'))
 
-    context = {'form': form}
+    context = {
+        'form': form,
+        'creator': 'Rizky Prawira Negoro',
+        'npm': '2206030956',
+        'class': 'PBP E', # Kelas PBP kamu
+        }
     return render(request, "create_item.html", context)
 
 def show_xml(request):
@@ -66,8 +73,17 @@ def register(request):
             form.save()
             messages.success(request, 'Your account has been successfully created!')
             return redirect('main:login')
-    context = {'form':form}
+    context = {
+        'form':form,
+        'creator': 'Rizky Prawira Negoro',
+        'npm': '2206030956',
+        'class': 'PBP E', # Kelas PBP kamu
+        }
     return render(request, 'register.html', context)
+
+def go_back_login(request):
+    if request.method == "POST":
+        return redirect('main:login')
 
 def login_user(request):
     if request.method == 'POST':
@@ -81,7 +97,11 @@ def login_user(request):
             return response
         else:
             messages.info(request, 'Sorry, incorrect username or password. Please try again.')
-    context = {}
+    context = {
+        'creator': 'Rizky Prawira Negoro',
+        'npm': '2206030956',
+        'class': 'PBP E', # Kelas PBP kamu
+    }
     return render(request, 'login.html', context)
 
 def logout_user(request):
