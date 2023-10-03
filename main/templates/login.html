@@ -5,41 +5,130 @@
 {% endblock meta %}
 
 {% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Amarta's Restaurant</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            nav {
+                background-color: #FFD24C;
+            }
 
-<div class = "login">
+            #brand {
+                color:royalblue; 
+                font-weight: 1000;
+            }
 
-    <h1>Login</h1>
+            .content {
+                background-color:#FFFFFF; 
+                color:black; 
+                padding-inline: 30px; 
+                padding-block: 20px;
+            }
 
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
+            .login-box {
+                border: 1px solid black;
+                padding: 30px;
+                width: 25%;
+                margin-top: 80px;
+                margin-left: 37.5%;
+                margin-bottom: 30px;
+            }
 
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
+            h2 {
+                color: royalblue;
+                text-align: center;
+            }
+            
+            table, ul {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
 
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
-        
-    Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
+            
+            .footer-content {
+                background-color: royalblue;
+                color: #FFFFFF;
+                height: 100%;
+                margin-top: 185px;
+                padding-inline: 30px; 
+                padding-block: 10px;
+            }
 
-</div>
+            .footer-content p {
+                margin: 0px;
+                padding: 0px;
+                font-size: 15px;
+            }
+
+            .rest-of-content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar body-tertiary"">
+            <div class="container-fluid">
+                <a class="navbar-brand" id="brand">Amarta's Restaurant</a>
+                <a href="{% url 'main:register' %}">
+                    <button class="btn btn-primary logout_btn" type="button">Register</button>
+                </a>
+            </div>
+        </nav>
+
+        <div class = "login content">
+            {% if messages %}
+                <ul style="color: #dc3545;">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            <div class="login-box">
+                <h2>Login</h2>
+
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <table>
+                        <tr>
+                            <td>Username: </td>
+                            <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+                        </tr>
+                                
+                        <tr>
+                            <td>Password: </td>
+                            <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td><input class="btn btn-success login_btn" type="submit" value="Login"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+            <div class="rest-of-content">
+                Don't have an account yet?<a href="{% url 'main:register' %}">Register Now</a>
+            </div>
+        </div>
+    </body>
+    <footer>
+        <div class="footer-content">
+            <p>Credit: {{creator}} - {{class}} - {{npm}}</p>
+            <p>Pemograman Berbasis Platform - Tugas</p>
+        </div>
+    </footer>
+</html>
+
+
 
 {% endblock content %}

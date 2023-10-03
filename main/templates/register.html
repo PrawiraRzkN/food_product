@@ -5,30 +5,129 @@
 {% endblock meta %}
 
 {% block content %}  
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Amarta's Restaurant</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            nav {
+                background-color: #FFD24C;
+            }
 
-<div class = "login">
-    
-    <h1>Register</h1>  
+            #brand {
+                color:royalblue; 
+                font-weight: 1000;
+            }
 
-        <form method="POST" >  
-            {% csrf_token %}  
-            <table>  
-                {{ form.as_table }}  
-                <tr>  
-                    <td></td>
-                    <td><input type="submit" name="submit" value="Daftar"/></td>  
-                </tr>  
-            </table>  
-        </form>
+            .content {
+                background-color:#FFFFFF; 
+                color:black; 
+                padding-inline: 30px; 
+                padding-block: 20px;
+            }
 
-    {% if messages %}  
-        <ul>   
-            {% for message in messages %}  
-                <li>{{ message }}</li>  
-                {% endfor %}  
-        </ul>   
-    {% endif %}
+            h2 {
+                color: royalblue;
+                text-align: center;
+            }
+            
+            form {
+                margin: 20px;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                background-color: #f9f9f9;
+            }
 
-</div>  
+            table {
+                width: 100%;
+            }
+
+            td {
+                padding: 10px;
+            }
+
+            input[type="submit"] {
+                background-color: #007BFF;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            /* Style for messages */
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            li {
+                background-color: #f2f2f2;
+                padding: 10px;
+                margin: 5px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            .footer-content {
+                background-color: royalblue;
+                color: #FFFFFF;
+                height: 100%;
+                padding-inline: 30px; 
+                padding-block: 10px;
+            }
+
+            .footer-content p {
+                margin: 0px;
+                padding: 0px;
+                font-size: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar body-tertiary"">
+            <div class="container-fluid">
+                <a class="navbar-brand" id="brand">Amarta's Restaurant</a>
+                <a href="{% url 'main:login' %}">
+                    <button class="btn btn-primary" type="button">Kembali</button>
+                </a>
+            </div>
+        </nav>
+        <div class = "login content">
+            <h2>Register</h2>  
+
+                <form method="POST" >  
+                    {% csrf_token %}  
+                    <table>  
+                        {{ form.as_table }}  
+                        <tr>  
+                            <td></td>
+                            <td><input type="submit" name="submit" value="Daftar"/></td>  
+                        </tr>  
+                    </table>  
+                </form>
+
+            {% if messages %}  
+                <ul>   
+                    {% for message in messages %}  
+                        <li>{{ message }}</li>  
+                        {% endfor %}  
+                </ul>
+            {% endif %}
+
+        </div>  
+    </body>
+    <footer>
+        <div class="footer-content">
+            <p>Credit: {{creator}} - {{class}} - {{npm}}</p>
+            <p>Pemograman Berbasis Platform - Tugas</p>
+        </div>
+    </footer>
 
 {% endblock content %}

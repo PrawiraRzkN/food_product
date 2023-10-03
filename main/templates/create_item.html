@@ -1,19 +1,127 @@
 {% extends 'base.html' %} 
 
 {% block content %}
-<h1>Add New Item</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Amarta's Restaurant</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            nav {
+                background-color: #FFD24C;
+            }
 
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-        <tr>
-            <td></td>
-            <td>
-                <input type="submit" value="Add Item"/>
-            </td>
-        </tr>
-    </table>
-</form>
+            #brand {
+                color:royalblue; 
+                font-weight: 1000;
+            }
 
+            .btn-display {
+                display: flex; /* Use flexbox to display buttons in a row */
+                align-items: center; /* Center buttons vertically if needed */
+            }
+
+            .content {
+                background-color:#FFFFFF; 
+                color:black; 
+                padding-inline: 30px; 
+                padding-block: 20px;
+            }
+
+            h3 {
+                color: royalblue;
+                text-align: center;
+            }
+
+            form {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: left;
+                flex-direction: column;
+                padding: 20px;
+                margin-top: 5px;
+            }
+
+            input, textarea {
+                width: 300px;
+                height: 30px;
+                margin: 10px;
+                border-radius: 5px;
+                border: 1px solid black;
+                padding: 7px;
+            }
+
+            textarea:last-child {
+                width: 300px;
+                height: 150px;
+                margin: 10px;
+                border-radius: 5px;
+                border: 1px solid black;
+                padding: 7px;
+            }
+
+            .footer-content {
+                background-color: royalblue;
+                color: #FFFFFF;
+                height: 100%;
+                padding-inline: 30px; 
+                padding-block: 10px;
+            }
+
+            .footer-content p {
+                margin: 0px;
+                padding: 0px;
+                font-size: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar body-tertiary"">
+            <div class="container-fluid">
+                <a class="navbar-brand" id="brand">Amarta's Restaurant</a>
+                <div class="btn-display">
+                    <a>
+                        <button class="btn btn-primary" type="button" style="margin-inline: 5px;" onclick="goBack()">Kembali</button>
+                        <script>
+                            function goBack() {
+                                window.history.back();
+                            }
+                        </script>
+                    </a>
+                    <a href="{% url 'main:logout' %}">
+                        <button class="btn btn-danger logout_btn" type="button">Logout</button>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="content">
+            <h3>Tambahkan Item Baru</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" value="Add Item" class="btn btn-success" style="height: 50px;"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+    <footer>
+        <div class="footer-content">
+            <p>Credit: {{creator}} - {{class}} - {{npm}}</p>
+            <p>Pemograman Berbasis Platform - Tugas</p>
+        </div>
+    </footer>
+</html>
 {% endblock %}
