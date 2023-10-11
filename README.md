@@ -1,5 +1,5 @@
 # Tugas 2: Aplikasi pengatur penjualan produk-produk makanan nusantara.
-Tautan menuju aplikasi Adaptable: https://foodproduct-management.adaptable.app
+Tautan menuju aplikasi: http://rizky-prawira-tugas.pbp.cs.ui.ac.id
 
 ## **Step by step deploy proyek baru**
 1. Membangun proyek Django baru, yaitu membuat terlebih dahulu direktori baru bernama 'food_product'. Lalu menjalankan virtual environment untuk direktori tersebut untuk mengisolasi dependencies yang akan diinstall, termasuk Django itu sendiri. Setelah dependencies terinstall, dilakukan konfigurasi dan dijalankan server dari proyek ini. Jika berhasil, maka direktori baru ini di unggah ke repository github baru dengan nama yang sama.
