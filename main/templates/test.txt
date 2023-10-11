@@ -1,0 +1,24 @@
+function confirmationModal(item_id) {
+        document.getElementById("confirmation").innerHTML = ""
+        let htmlString = `
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Warning</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Apakah anda yakin untuk menghapus item ini?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="button_close">Tidak</button>
+                    <button type="button" class="btn btn-primary" onclick="removeItem(${item_id})">Iya</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        `
+
+        document.getElementById("confirmation").innerHTML = htmlString
+    }

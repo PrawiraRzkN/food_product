@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.core import serializers
 from django.http import HttpResponseRedirect
 from main.forms import ItemForm, Item
@@ -14,6 +14,7 @@ import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
 
 @login_required(login_url='/login')
 def show_main(request):
@@ -110,26 +111,58 @@ def logout_user(request):
     response.delete_cookie('last_login')
     return response
 
+@csrf_exempt
 def add_amount_button(request, item_id):
-    item = get_object_or_404(Item, pk=item_id) #Mengakses item yang ingin dimodifikasi
-    item.user = request.user; 
-    if item.amount > 0:
-        item.amount += 1
-        item.save()
-    return redirect('main:show_main')
+    if request.method == 'POST':
+        item = Item.objects.get(pk=item_id) #Mengakses item yang ingin dimodifikasi
+        item.user = request.user
+        if item.amount > 0:
+            item.amount += 1
+            item.save()
+        return HttpResponse(b"ADDED", status=201)
+    return HttpResponseNotFound()
 
+@csrf_exempt
 def reduce_amount_button(request, item_id):
-    item = get_object_or_404(Item, pk=item_id)
-    item.user = request.user;
-    if item.amount > 1:
-        item.amount -= 1
-        item.save()
-    else:
-        item.delete();
-    return redirect('main:show_main')
+    if request.method == 'POST':
+        item = Item.objects.get(pk=item_id)
+        item.user = request.user
+        if item.amount > 1:
+            item.amount -= 1
+            item.save()
+        else:
+            item.delete();
+        return HttpResponse(b"REDUCED", status=201)
+    return HttpResponseNotFound()
 
+@csrf_exempt
 def remove_item_button(request, item_id):
-    item = get_object_or_404(Item, pk=item_id)
-    item.user = request.user;
-    item.delete()
-    return redirect('main:show_main')
+    if request.method == 'DELETE':
+        item = Item.objects.get(pk=item_id)
+        item.user = request.user
+        item.delete()
+        return HttpResponse(b"REMOVED", status=201)
+    return HttpResponseNotFound()
+    
+def get_item_json(request):
+    item = Item.objects.filter(user=request.user)
+    item.user = request.user
+    return HttpResponse(serializers.serialize('json', item))
+
+@csrf_exempt
+def add_item_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        amount = request.POST.get("amount")
+        price = request.POST.get("price")
+        category = request.POST.get("category")
+        origin = request.POST.get("origin")
+        description = request.POST.get("description")
+        user = request.user
+
+        new_item = Item(name=name, amount=amount, price=price, category=category, origin=origin, description=description, user=user)
+        new_item.user = request.user
+        new_item.save()
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
